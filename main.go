@@ -11,6 +11,6 @@ func main() {
 	fmt.Print("Entrez votre nom : ")
 	fmt.Scanln(&name)
 
-	message := utils.GetGreeting(name)
+	message := utils.Greeting(name)
 	fmt.Println(message)
 }

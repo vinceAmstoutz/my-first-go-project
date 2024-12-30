@@ -1,5 +1,5 @@
 package utils
 
-func GetGreeting(name string) string {
-    return "Hello, " + name + " !"
+func Greeting(name string) string {
+	return "Hello, " + name + " !"
 }
