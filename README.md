@@ -1,5 +1,7 @@
 # My First Go Project
 
+[![Static analysis](https://github.com/vinceAmstoutz/my-first-go-project/actions/workflows/static.yaml/badge.svg)](https://github.com/vinceAmstoutz/my-first-go-project/actions/workflows/static.yaml)
+
 Welcome to my first Go project! 🎉 
 
 This repository is inspired by the [Learn Go](https://go.dev/learn/) guide and serves as a hands-on journey to mastering Go through exercises and practice.
