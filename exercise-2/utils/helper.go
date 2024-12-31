@@ -52,7 +52,6 @@ func ShouldRestartGame() bool {
 	var input string
 
 	for {
-
 		fmt.Print("Do you want to start a new game? (yes/no, default: yes): ")
 		fmt.Scanln(&input)
 
@@ -65,5 +64,4 @@ func ShouldRestartGame() bool {
 			continue
 		}
 	}
-
 }
