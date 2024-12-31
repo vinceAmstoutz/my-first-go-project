@@ -20,6 +20,10 @@ jobs:
         with:
           fetch-depth: 1
 
+      - uses: dominikh/staticcheck-action@v1
+        with:
+          version: "latest"
+
       - name: Set up Go ${{ matrix.go-version }}
         uses: actions/setup-go@v5
         with:
