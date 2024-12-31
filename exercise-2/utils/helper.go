@@ -47,3 +47,23 @@ func GetUserInput() uint8 {
 		return inputNumber
 	}
 }
+
+func ShouldRestartGame() bool {
+	var input string
+
+	for {
+
+		fmt.Print("Do you want to start a new game? (yes/no, default: yes): ")
+		fmt.Scanln(&input)
+
+		if input == "yes" || input == "" {
+			return true
+		} else if input == "no" {
+			return false
+		} else {
+			fmt.Println("[ERROR] Please enter 'yes' or 'no'.")
+			continue
+		}
+	}
+
+}

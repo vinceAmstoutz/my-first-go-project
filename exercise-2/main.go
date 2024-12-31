@@ -15,16 +15,10 @@ import (
 // - Game loop: A loop that continues until the mystery number is found.
 // - Comparisons: Clues (larger or smaller) to guide the user.
 // - Victory message: A message congratulating the user with the number of trials used.
-
+// - Bonus : allow replay by adding a loop to restart a game after winning.
 func main() {
-	var attempts uint8
-	mysteryNumber := utils.GetMysteryNumber()
-
 	displayWelcomeMessage()
-	startGame(mysteryNumber, &attempts)
-
-	fmt.Printf("Congratulations! 🎉 You've uncovered the mystery number %d in just %d attempts!\n", mysteryNumber, attempts)
-
+	startGame()
 }
 
 func displayWelcomeMessage() {
@@ -32,16 +26,33 @@ func displayWelcomeMessage() {
 	fmt.Println(welcomeMessage)
 }
 
-func startGame(mysteryNumber uint8, attempts *uint8) {
-	for {
-		(*attempts)++
-		inputNumber := utils.GetUserInput()
+func startGame() {
 
-		if inputNumber == mysteryNumber {
-			break
+forPlay:
+	for {
+		var attempts uint8
+		mysteryNumber := utils.GetMysteryNumber()
+
+	forGame:
+		for {
+			attempts++
+			inputNumber := utils.GetUserInput()
+
+			if inputNumber == mysteryNumber {
+				break forGame
+			}
+
+			provideFeedback(inputNumber, mysteryNumber)
 		}
 
-		provideFeedback(inputNumber, mysteryNumber)
+		fmt.Printf("Congratulations! 🎉 You've uncovered the mystery number %d in just %d attempts!\n", mysteryNumber, attempts)
+
+		shouldContinue := utils.ShouldRestartGame()
+		if !shouldContinue {
+			break forPlay
+		}
+
+		continue
 	}
 }
 
