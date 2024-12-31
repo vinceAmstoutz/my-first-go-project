@@ -27,7 +27,6 @@ func displayWelcomeMessage() {
 }
 
 func startGame() {
-
 forPlay:
 	for {
 		var attempts uint8

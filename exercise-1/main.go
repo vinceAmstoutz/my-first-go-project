@@ -9,7 +9,7 @@ import (
 func main() {
 	var name string
 
-	fmt.Print("Entrez votre nom : ")
+	fmt.Print("Enter your name : ")
 
 	_, error := fmt.Scanln(&name)
 	if error != nil {

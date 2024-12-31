@@ -1,12 +1,12 @@
 package utils
 
 import (
+	"crypto/rand"
 	"fmt"
-	"math/rand"
-	"time"
+	"math/big"
 )
 
-const MAX_MYSTERY_NUMBER = 100
+const MaxMysteryNumber = 100
 
 func GetWelcomeMessage() string {
 	return `Welcome to the Mystery Number Game! 🎉
@@ -23,14 +23,18 @@ func GetMysteryNumber() uint8 {
 }
 
 func generateRandomNumberBetween0And100() uint8 {
-	randomSource := rand.NewSource(time.Now().UnixNano())
-	randomGenerator := rand.New(randomSource)
+	n, err := rand.Int(rand.Reader, big.NewInt(MaxMysteryNumber+1))
+	if err != nil {
+		fmt.Println("[ERROR] Failed to generate random number:", err)
+		return 0
+	}
 
-	return uint8(randomGenerator.Intn(MAX_MYSTERY_NUMBER + 1)) // 0 <= number <= 100
+	return uint8(n.Int64())
 }
 
 func GetUserInput() uint8 {
 	var inputNumber uint8
+
 	for {
 		fmt.Print("Enter a number between 0 and 100: ")
 
@@ -40,10 +44,10 @@ func GetUserInput() uint8 {
 
 			// Clear the invalid input from the buffer
 			var discard string
-			_, discardErr := fmt.Scanln(&discard)
-			if discardErr != nil {
+			if _, discardErr := fmt.Scanln(&discard); discardErr != nil {
 				fmt.Println("[ERROR] Unable to clear the buffer.")
 			}
+
 			continue
 		}
 
@@ -56,17 +60,19 @@ func ShouldRestartGame() bool {
 
 	for {
 		fmt.Print("Do you want to start a new game? (yes/no, default: yes): ")
+
 		_, error := fmt.Scanln(&input)
 		if error != nil {
 			fmt.Println("[ERROR] Failed to read input.")
 			continue
 		}
 
-		if input == "yes" || input == "" {
+		switch input {
+		case "yes", "":
 			return true
-		} else if input == "no" {
+		case "no":
 			return false
-		} else {
+		default:
 			fmt.Println("[ERROR] Please enter 'yes' or 'no'.")
 			continue
 		}
