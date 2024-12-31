@@ -34,13 +34,16 @@ func GetUserInput() uint8 {
 	for {
 		fmt.Print("Enter a number between 0 and 100: ")
 
-		_, errors := fmt.Scanln(&inputNumber)
-		if errors != nil || inputNumber > 100 {
-			fmt.Print("[ERROR] Invalid input, enter a valid number between 0 and 100 !\n")
+		_, error := fmt.Scanln(&inputNumber)
+		if error != nil || inputNumber > 100 {
+			fmt.Print("[ERROR] Invalid input, enter a valid number between 0 and 100!\n")
 
 			// Clear the invalid input from the buffer
 			var discard string
-			fmt.Scanln(&discard)
+			_, discardErr := fmt.Scanln(&discard)
+			if discardErr != nil {
+				fmt.Println("[ERROR] Unable to clear the buffer.")
+			}
 			continue
 		}
 
@@ -53,7 +56,11 @@ func ShouldRestartGame() bool {
 
 	for {
 		fmt.Print("Do you want to start a new game? (yes/no, default: yes): ")
-		fmt.Scanln(&input)
+		_, error := fmt.Scanln(&input)
+		if error != nil {
+			fmt.Println("[ERROR] Failed to read input.")
+			continue
+		}
 
 		if input == "yes" || input == "" {
 			return true

@@ -10,7 +10,12 @@ func main() {
 	var name string
 
 	fmt.Print("Entrez votre nom : ")
-	fmt.Scanln(&name)
+
+	_, error := fmt.Scanln(&name)
+	if error != nil {
+		fmt.Println("[ERROR] Failed to read input:", error)
+		return
+	}
 
 	message := utils.Greeting(name)
 	fmt.Println(message)
