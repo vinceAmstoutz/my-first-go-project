@@ -19,7 +19,6 @@ Good luck! Let's start! 🚀
 }
 
 func GetMysteryNumber() uint8 {
-
 	return generateRandomNumberBetween0And100()
 }
 
@@ -36,7 +35,7 @@ func GetUserInput() uint8 {
 		fmt.Print("Enter a number between 0 and 100: ")
 
 		_, errors := fmt.Scanln(&inputNumber)
-		if errors != nil || inputNumber < 0 || inputNumber > 100 {
+		if errors != nil || inputNumber > 100 {
 			fmt.Print("[ERROR] Invalid input, enter a valid number between 0 and 100 !\n")
 
 			// Clear the invalid input from the buffer
