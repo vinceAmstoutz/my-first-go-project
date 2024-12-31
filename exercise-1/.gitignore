@@ -7,7 +7,7 @@
 *.dll
 *.so
 *.dylib
-my-first-go-project
+exercise-1
 
 # Test binary, built with `go test -c`
 *.test

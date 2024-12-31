@@ -1,10 +1,11 @@
 package main
 
 import (
+	"exercise-1/utils"
 	"fmt"
-	"my-first-go-project/utils"
 )
 
+// Say Hello xxx using a prompt
 func main() {
 	var name string
 
