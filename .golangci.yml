@@ -1,0 +1,15 @@
+linters:
+  enable:
+    - gofmt
+    - govet
+    - staticcheck
+    - errcheck
+    - gocritic
+    - stylecheck
+    - sloglint
+    - nestif
+    - goconst
+    - gocognit
+    - gochecknoglobals 
+    - whitespace 
+    - wsl
