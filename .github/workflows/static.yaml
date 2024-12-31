@@ -9,7 +9,7 @@ on:
 
 jobs:
   ci:
-    name: "Run Staticcheck and Tests"
+    name: "Run staticcheck"
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,17 +22,9 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go-version }}
-
-      - name: Cache Go modules
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.cache/go-build
-            ~/.go/pkg/mod
-          key: ${{ runner.os }}-go-${{ matrix.go-version }}-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-${{ matrix.go-version }}-
-            ${{ runner.os }}-
+          cache-dependency-path: |
+            exercise-1
+            exercise-2
 
       - name: Run staticcheck on exercise-1
         uses: dominikh/staticcheck-action@v1
