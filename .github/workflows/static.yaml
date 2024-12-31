@@ -7,9 +7,13 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  checks: write
+
 jobs:
   ci:
-    name: "Run staticcheck"
+    name: "Run golangci-lint"
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -26,18 +30,14 @@ jobs:
             exercise-1
             exercise-2
 
-      - name: Run staticcheck on exercise-1
-        uses: dominikh/staticcheck-action@v1
+      - name: Run golangci-lint on exercise-1
+        uses: golangci/golangci-lint-action@v6
         with:
-          version: "latest"
-          install-go: false
-          cache-key: ${{ runner.os }}-staticcheck-${{ matrix.go-version }}
-          working-directory: "exercise-1"
+          version: latest
+          working-directory: exercise-1
 
-      - name: Run staticcheck on exercise-2
-        uses: dominikh/staticcheck-action@v1
+      - name: Run golangci-lint on exercise-2
+        uses: golangci/golangci-lint-action@v6
         with:
-          version: "latest"
-          install-go: false
-          cache-key: ${{ runner.os }}-staticcheck-${{ matrix.go-version }}
-          working-directory: "exercise-2"
+          version: latest
+          working-directory: exercise-2
