@@ -28,3 +28,4 @@ Go is a modern programming language known for its simplicity, efficiency, and po
 
 - [Learn Go](https://go.dev/learn/) - A great starting point for Go enthusiasts.
 - [Go Documentation](https://pkg.go.dev/std) - Dive deep into Go's standard library.
+- [Tour of Go](https://go.dev/tour/) - An interactive introduction to Go in four sections. Each section concludes with a few exercises so you can practice what you've learned.
