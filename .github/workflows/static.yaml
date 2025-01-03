@@ -40,3 +40,9 @@ jobs:
         with:
           version: latest
           working-directory: exercise-2
+
+      - name: Run golangci-lint on exercise-3-go-routines
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: latest
+          working-directory: exercise-3-go-routines
