@@ -4,7 +4,10 @@
 
 Welcome to my first Go project! 🎉 
 
-This repository is inspired by the [Learn Go](https://go.dev/learn/) guide and serves as a hands-on journey to mastering Go through exercises and practice.
+This repository is inspired by the [Learn Go](https://go.dev/learn/) guide and offers a hands-on approach to mastering Go through exercises and practical experience.
+
+In addition, I have completed the [Tour of Go](https://go.dev/tour/), which helped deepen my understanding of key concepts such as slices, maps, structs, interfaces, typed parameters, and **goroutines**, among others.
+
 
 ## About the Project
 
