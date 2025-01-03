@@ -15,6 +15,8 @@ This repository contains a series of exercises aimed at building and strengtheni
 
 Each exercise includes both the problem statement and its implementation, all located in the corresponding `main.go` files.
 
+The project also integrates code quality tools through **golangci/golangci-lint-action** (see [.github/workflows/static.yaml](.github/workflows/static.yaml) for details). Under the hood, it leverages tools like `gofmt`, `govet`, `staticcheck`, and others. For additional configuration details, you can refer to [.golangci.yml](.golangci.yml).
+
 > [!NOTE]
 > This project is experimental and primarily intended for learning and exploration purposes.
 > Expect frequent updates, potential breaking changes, and evolving code as the exercises and solutions are refined.
